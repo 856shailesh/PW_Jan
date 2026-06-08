@@ -1,0 +1,2 @@
+user cred : 856shaileshkumar@gmail.com : IloveIndia
+Home page headers [ 'My Account', 'My Orders', 'My Affiliate Account', 'Newsletter' ]
