@@ -5,22 +5,22 @@ export class HomePage extends BasePage {
     //Private Locator
     private readonly logoutLink: Locator;
     private readonly headers: Locator;
-    private readonly search: Locator;
-    private readonly searchIcon: Locator;
+    // private readonly search: Locator;
+    // private readonly searchIcon: Locator;
 
     //constructor 
     constructor(page: Page) {
         super(page);
         this.logoutLink = page.getByRole('link', { name: 'Logout' });
         this.headers = page.getByRole('heading', { level: 2 });
-        this.search = page.getByRole('textbox', { name: 'Search' });
-        this.searchIcon = page.locator('div#search button');
+        // this.search = page.getByRole('textbox', { name: 'Search' });
+        // this.searchIcon = page.locator('div#search button');
     };
 
     //public page actions : behaviour
-    async getHomePageTitle(): Promise<string> {
-        return await this.page.title();
-    }
+    // async getHomePageTitle(): Promise<string> {
+    //     return await this.page.title();
+    // } Created one in Base Page
 
     async isLogoutLinkExist(): Promise<Boolean> {
         return await this.logoutLink.isVisible();
@@ -32,7 +32,8 @@ export class HomePage extends BasePage {
 
     async doSearch(searchkey: string): Promise<void> {
         console.log(`search key is : ${searchkey}`);
-        await this.search.fill(searchkey);
+        //await this.search.fill(searchkey);
+        await this.searchBox.fill(searchkey)
         await this.searchIcon.click();
     }
 }
