@@ -2,11 +2,13 @@ import { test as baseTest } from '@playwright/test';
 import { LoginPage } from '../pages/LoginPage';
 import { HomePage } from '../pages/HomePage';
 import { CsvHelper } from '../utils/CSVhelper';
+import { SearchResultsPage } from '../pages/SearchResultsPage';
 
 //define the type for page fixtures :
 type pageFixtures = {
     loginPage: LoginPage,
     homePage: HomePage,
+    searchResultsPage: SearchResultsPage,
     testData: Record<string, string>[]
 };
 
@@ -22,6 +24,11 @@ export let test = baseTest.extend<pageFixtures>({
     homePage: async ({ page }, use) => {
         let homePage = new HomePage(page);
         await use(homePage);
+    },
+
+    searchResultsPage: async ({ page }, use) => {
+        let searchResultsPage = new SearchResultsPage(page);
+        await use(searchResultsPage);
     },
 
     testData: async ({ }, use) => {

@@ -1,6 +1,8 @@
 import { test, expect } from '../src/fixtures/pagefixtures'
 import { LoginPage } from '../src/pages/LoginPage';
 import { CsvHelper } from '../src/utils/CSVhelper';
+import { ExcelHelper } from '../src/utils/ExcelHelper';
+import { JsonHelper } from '../src/utils/JsonHelper';
 
 test.beforeEach(async ({ loginPage }) => {
     await loginPage.goToLoginPage();
@@ -38,3 +40,20 @@ for (let row of testData) {
         expect(await loginPage.isInvalidLoginErrorDisplayed()).toBeTruthy();
     })
 }
+
+
+let logintestData = ExcelHelper.readExcel('src/data/OpenCartTestData.xlsx', 'login');
+for (let row of logintestData) {
+    test(`invalid login test using excel data ${row.username} - ${row.password}`, async ({ loginPage }) => {
+        await loginPage.doLogin(row.username, row.password);
+        expect(await loginPage.isInvalidLoginErrorDisplayed()).toBeTruthy();
+    })
+};
+
+let loginJSONData = JsonHelper.readJson('src/data/login.json');
+for (let row of loginJSONData) {
+    test(`invalid login test using JSON data ${row.username} - ${row.password}`, async ({ loginPage }) => {
+        await loginPage.doLogin(row.username, row.password);
+        expect(await loginPage.isInvalidLoginErrorDisplayed()).toBeTruthy();
+    })
+};
