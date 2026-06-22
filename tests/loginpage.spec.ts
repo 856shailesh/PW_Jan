@@ -24,5 +24,5 @@ test('forget password link exist test', async ({ }) => {
 test('user is able to login to app test', async ({ }) => {
     await loginPage.doLogin('856shaileshkumar@gmail.com', 'IloveIndia');
     expect.soft(await homePage.isLogoutLinkExist()).toBeTruthy();
-    expect.soft(await homePage.getHomePageTitle()).toBe('My Account');
+    expect.soft(await homePage.getPageTitle()).toBe('My Account');
 })

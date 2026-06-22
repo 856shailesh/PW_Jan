@@ -13,7 +13,7 @@ test.beforeEach(async ({ page }) => {
 })
 
 test('home page title test', async ({ }) => {
-    const pageTitle = await homePage.getHomePageTitle();
+    const pageTitle = await homePage.getPageTitle();
     console.log("Home page title is , ", pageTitle);
     expect(pageTitle).toBe('My Account');
 })

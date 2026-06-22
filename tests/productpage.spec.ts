@@ -27,6 +27,21 @@ test(`Verify product Information data `, async ({ homePage, searchResultsPage, p
     expect.soft(actualProductInfoMap.get('Product Price')).toBe('$2,000.00');
 });
 
-test('company logo exist on Product Page', async ({ basePage}) => {
+test('company logo exist on Product Page', async ({ basePage }) => {
     expect(await basePage.isLogoVisible()).toBeTruthy();
 })
+
+test('Verify Product are added in cart', async ({ homePage, searchResultsPage, productInfoPage }) => {
+    await homePage.doSearch('macbook');
+    await searchResultsPage.selectProduct('MacBook Pro');
+    await productInfoPage.doFillQty('2');
+    expect.soft(await productInfoPage.getSuccessMsg()).toContain('Success');
+})
+
+test('Verify user is able to access Cart page after adding items in cart', async ({ homePage, searchResultsPage, productInfoPage , cartPage }) => {
+    await homePage.doSearch('macbook');
+    await searchResultsPage.selectProduct('MacBook Pro');
+    await productInfoPage.doFillQty('2');
+    await productInfoPage.doClickCartBtn();
+    expect 
+});
