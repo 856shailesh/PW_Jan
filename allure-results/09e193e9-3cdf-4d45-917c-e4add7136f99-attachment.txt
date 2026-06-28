@@ -1,3 +1,0 @@
-user cred : invalid@open.com : wrong123
-user cred :  : pw1234
-user cred : pwtestbatch@open : 
