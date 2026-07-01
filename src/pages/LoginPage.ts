@@ -42,6 +42,6 @@ export class LoginPage extends BasePage {
     }
 
     async isInvalidLoginErrorDisplayed(): Promise<Boolean> {
-        return await this.forgottenPassswrodLink.isVisible();
+        return await this.loginErrorMessage.isVisible();
     }
 }
