@@ -1,0 +1,3 @@
+firstName,lastName,email,telephone,password,confirmPassword,subscribe
+skumar,shailesh,skumar@example.com,1234567890,password,password,false
+vijaj,raj, vraj@example.com,0987654321,password,password,true
