@@ -43,6 +43,10 @@ export class ProductInfoPage extends BasePage {
         return this.map;
     }
 
+    //Brand: apple
+    //Product Code: Product 18
+    //Reward Points: 800
+    //Availability: In Stock
     private async getProductMetaData(): Promise<void> {
         let metData = await this.productMetaData.allInnerTexts();
         for (let data of metData) {
@@ -53,6 +57,8 @@ export class ProductInfoPage extends BasePage {
         }
     }
 
+    //Product Price: $2,000.00
+    //Ex Tax: $2,000.00
     private async getProductPricingData(): Promise<void> {
         let priceData = await this.productPricing.allInnerTexts();
         let productPrice = priceData[0].trim();

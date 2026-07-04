@@ -19,6 +19,4 @@ test.describe('Register Page Tests', () => {
             expect(await registerPage.isRegisterSuccessMsgDisplayed()).toBeFalsy();
         })
     }
-
-
 })

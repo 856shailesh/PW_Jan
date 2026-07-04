@@ -57,3 +57,16 @@ for (let row of loginJSONData) {
         expect(await loginPage.isInvalidLoginErrorDisplayed()).toBeTruthy();
     })
 };
+
+//Common Test on Each Page
+test('comp logo exist on Home Page', async ({ basePage}) => {
+    expect(await basePage.isLogoVisible()).toBeTruthy();
+})
+
+test('search box exist on Home Page', async ({ basePage}) => {
+    expect(await basePage.isSearchBoxVisible()).toBeTruthy();
+})
+
+test('footer exist on Home Page', async ({ basePage}) => {
+    expect(await basePage.getPageFootersCount()).toBe(16);
+})

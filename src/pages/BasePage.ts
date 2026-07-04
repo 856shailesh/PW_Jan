@@ -45,8 +45,8 @@ export class BasePage {
     async getPageTitle(): Promise<string> {
         return await this.page.title();
     }
-    async getCurrentURL() {
-        return await this.page.url();
+    getCurrentURL() {
+        return this.page.url();
     }
     async watiForPageLoad() {
         return await this.page.waitForLoadState('load');
