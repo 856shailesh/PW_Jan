@@ -25,7 +25,7 @@ test('create a user test', async ({ request }) => {
     };
 
     //JS object to JSON : Serialization(Auto serialization)
-    let response = await request.post('https://gorest.co.in/public/v2/users/8516586', {
+    let response = await request.post('https://gorest.co.in/public/v2/users', {
         headers: AUTH_TOKEN,
         data: userData
     });

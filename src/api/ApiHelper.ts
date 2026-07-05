@@ -43,9 +43,8 @@ export class ApiHelper {
         }
     }
     //Delete
-    async delete(endPoint: string, data: object, headers?: Record<string, string>) {
+    async delete(endPoint: string, headers?: Record<string, string>) {
         let response = await this.request.delete(`${this.baseURL}${endPoint}`, {
-            data: data,
             headers: headers
         });
         return {
