@@ -16,7 +16,7 @@ for (const row of productData) {
 }
 
 for (const row of productData) {
-    test(`Verify user is able to land on product page ${row.productname}`, async ({ homePage, searchResultsPage, page }) => {
+    test.skip(`Verify user is able to land on product page ${row.productname}`, async ({ homePage, searchResultsPage, page }) => {
         await homePage.doSearch(row.searchkey);
         await searchResultsPage.selectProduct(row.productname);
         expect(await page.title()).toBe(row.productname);

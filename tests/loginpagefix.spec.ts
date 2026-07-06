@@ -35,7 +35,7 @@ test('login to app using wrong credentails using DDT', async ({ loginPage, testD
 //DD2 : w/o fixture , parallel mode . read data directly from loop
 let testData = CsvHelper.readCsv('src/data/loginData.csv');
 for (let row of testData) {
-    test.skip(`invalid login test ${row.username} - ${row.password}`, async ({ loginPage }) => {
+    test(`invalid login test ${row.username} - ${row.password}`, async ({ loginPage }) => {
         await loginPage.doLogin(row.username, row.password);
         expect(await loginPage.isInvalidLoginErrorDisplayed()).toBeTruthy();
     })
