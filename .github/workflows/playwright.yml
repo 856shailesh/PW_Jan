@@ -3,21 +3,21 @@ name: Playwright Tests
 on:
   schedule:
     - cron: '30 21 * * 1-4'  # Mon-Fri 8PM IST
-  push:
-    branches: [main]
-  pull_request:
-    branches: [main]
+  # push:
+  #   branches: [main]
+  # pull_request:
+  #   branches: [main]
   workflow_dispatch:
-    # inputs:
-    #   environment:
-    #     description: 'Select environment'
-    #     required: true
-    #     default: 'QA'
-    #     type: choice
-    #     options:
-    #       - QA
-    #       - stage
-    #       - dev
+    inputs:
+      environment:
+        description: 'Select environment'
+        required: true
+        default: 'QA'
+        type: choice
+        options:
+          - QA
+          - stage
+          - dev
 
 jobs:
   test:
@@ -33,14 +33,14 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 24
-          #cache: 'npm'
+          cache: 'npm'
 
-      # - name: Cache Playwright browsers
-      #   id: playwright-cache
-      #   uses: actions/cache@v4
-      #   with:
-      #     path: ~/.cache/ms-playwright
-      #     key: playwright-${{ hashFiles('package-lock.json') }}
+      - name: Cache Playwright browsers
+        id: playwright-cache
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/ms-playwright
+          key: playwright-${{ hashFiles('package-lock.json') }}
 
       - name: Install dependencies
         run: npm ci
