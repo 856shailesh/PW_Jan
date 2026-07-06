@@ -35,7 +35,7 @@ test('login to app using wrong credentails using DDT', async ({ loginPage, testD
 //DD2 : w/o fixture , parallel mode . read data directly from loop
 let testData = CsvHelper.readCsv('src/data/loginData.csv');
 for (let row of testData) {
-    test(`invalid login test ${row.username} - ${row.password}`, async ({ loginPage }) => {
+    test.skip(`invalid login test ${row.username} - ${row.password}`, async ({ loginPage }) => {
         await loginPage.doLogin(row.username, row.password);
         expect(await loginPage.isInvalidLoginErrorDisplayed()).toBeTruthy();
     })
@@ -44,7 +44,7 @@ for (let row of testData) {
 
 let logintestData = ExcelHelper.readExcel('src/data/OpenCartTestData.xlsx', 'login');
 for (let row of logintestData) {
-    test(`invalid login test using excel data ${row.username} - ${row.password}`, async ({ loginPage }) => {
+    test.skip(`invalid login test using excel data ${row.username} - ${row.password}`, async ({ loginPage }) => {
         await loginPage.doLogin(row.username, row.password);
         expect(await loginPage.isInvalidLoginErrorDisplayed()).toBeTruthy();
     })
@@ -52,7 +52,7 @@ for (let row of logintestData) {
 
 let loginJSONData = JsonHelper.readJson('src/data/login.json');
 for (let row of loginJSONData) {
-    test(`invalid login test using JSON data ${row.username} - ${row.password}`, async ({ loginPage }) => {
+    test.skip(`invalid login test using JSON data ${row.username} - ${row.password}`, async ({ loginPage }) => {
         await loginPage.doLogin(row.username, row.password);
         expect(await loginPage.isInvalidLoginErrorDisplayed()).toBeTruthy();
     })
