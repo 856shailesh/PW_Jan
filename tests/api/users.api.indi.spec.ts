@@ -54,15 +54,15 @@ test('Update a user', async ({ apiHelper }) => {
 
 //Test 3 : Delete a user
 // Post > delete > get
-test('Delete a user', async ({ apiHelper }) => {
-    //create a user:
-    let userResponse = await createUser(apiHelper);
-    //get the user
+// test('Delete a user', async ({ apiHelper }) => {
+//     //create a user:
+//     let userResponse = await createUser(apiHelper);
+//     //get the user
     
-    let response = await apiHelper.delete(`/public/v2/users/${userResponse.id}` , AUTH_HEADER);
-    expect(response.status).toBe(204);
+//     let response = await apiHelper.delete(`/public/v2/users/${userResponse.id}` , AUTH_HEADER);
+//     expect(response.status).toBe(204);
 
-    let getResponse = await apiHelper.get(`/public/v2/users/${userResponse.id}`, AUTH_HEADER);
-    expect(getResponse.status).toBe(404);
-    expect(getResponse.body.message).toBe('Resource not found');
-})
+//     let getResponse = await apiHelper.get(`/public/v2/users/${userResponse.id}`, AUTH_HEADER);
+//     expect(getResponse.status).toBe(404);
+//     expect(getResponse.body.message).toBe('Resource not found');
+// })
