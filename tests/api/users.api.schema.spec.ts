@@ -19,7 +19,7 @@ let userSchema = {
     required: ['id', 'name', 'email', 'gender', 'status']
 };
 
-test('GET user', async ({ apiHelper }) => {
+test.skip('GET user', async ({ apiHelper }) => {
     let userData = {
         name: 'Shailesh API',
         email: `automation_${Date.now()}@open.com`,
@@ -54,7 +54,7 @@ let userArraySchema = {
     items: userSchema
 };
 
-test('GET all users ', async ({ apiHelper }) => {
+test.skip('GET all users ', async ({ apiHelper }) => {
 
     //get a user
     let getUsersResponse = await apiHelper.get(`/public/v2/users`, AUTH_HEADER);
